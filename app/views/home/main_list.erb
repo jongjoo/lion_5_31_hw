@@ -1,0 +1,28 @@
+<h1>현재 접속중인 아이디 : <%=@email%></h1>
+
+<%if user_signed_in?%>
+<a href="/users/sign_out">로그아웃</a>
+<% else%>
+<a href="/users/sign_in">로그인 </a>
+<%end%>
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성시각</td>
+            <td>조회수</td>
+        </tr>
+    <%@all_post.each do |p|%>    
+        <tr>
+            <td><a href="/home/detail/<%=p.id%>"><%=p.title%></a></td>
+            <<td><%=p.user%></td>
+            <td><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></td>
+            <td><%=p.hit%></td>
+        </tr>
+    <%end%>
+    </table>
+    <%if user_signed_in?%>
+    <a href="/home/index">글쓰기</a>
+    <%end%>
+</div>

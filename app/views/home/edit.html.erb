@@ -1,0 +1,20 @@
+<div class="container" style="text-align:center">
+    <h1 class="textcenter" >자유 게시판 </h1>
+</div>
+
+<div class="container">
+    <form action="/edit_2/<%=@one_post.id%>" method="POST">
+      <div class="form-group">
+        <label>제목</label>
+        <input type="text"  name="title" class="form-control" id="title" value="<%=@one_post.title%>" placeholder="제목입력">
+      </div>
+        
+        <div class="form-group">
+          <label for="comment">내용</label>
+          <textarea class="form-control" name="content" rows="5" id="content" ><%=@one_post.content%></textarea>
+        </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
